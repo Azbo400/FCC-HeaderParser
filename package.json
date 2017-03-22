@@ -18,5 +18,8 @@
   "homepage": "https://github.com/Azbo400/FCC-HeaderParser#readme",
   "dependencies": {
     "express": "^4.15.2"
+  },
+  "engines": {
+    "node":"6.9.2"
   }
 }
