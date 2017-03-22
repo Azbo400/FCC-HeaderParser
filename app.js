@@ -8,7 +8,10 @@ app.get('/',function(req,res){
 });
 
 app.get('/whoami',function(req,res){
-  var ipaddress = req.ip;
+  var ipaddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  if(ipaddress.substr(0,7)=='::ffff'){
+    ipaddress = ipaddress.substr(7);
+  }
   var userLan = req.headers['accept-language'].split(',')[0];
   var operatingSystem = req.headers['user-agent'].split(/[()]/g)[1];
   res.send({
