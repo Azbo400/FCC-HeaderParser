@@ -3,6 +3,10 @@ var app = express();
 
 var port = process.env.PORT || 3000;
 
+app.get('/',function(req,res){
+  res.send('Welcome to my FreeCodeCamp header parser project, to use navigate to /whoami');
+});
+
 app.get('/whoami',function(req,res){
   var ipaddress = req.ip;
   var userLan = req.headers['accept-language'].split(',')[0];
